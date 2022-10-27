@@ -2,7 +2,7 @@ from django.shortcuts import render , get_object_or_404 # <----- Nuevo import
 from ejemplo.models import Familiar
 from ejemplo.forms import Buscar, FamiliarForm# <--- NUEVO IMPORT
 from django.views import View # <-- NUEVO IMPORT vista generica
-from django.views.generic import ListView , CreateView, DeleteView, UpdateView # <----- NUEVO IMPORT
+
 
 
 # Create your views here.
@@ -99,20 +99,3 @@ class AltaFamiliar(View):
                                                         'msg_exito': msg_exito})
         
         return render(request, self.template_name, {"form": form})
-
-class FamiliarList(ListView):
-  model = Familiar
-
-class FamiliarCrear(CreateView):
-  model = Familiar
-  success_url = "/panel-familia" # cuando creo un familiar vuelvo a esta url
-  fields = ["nombre", "direccion", "numero_pasaporte"]
-
-class FamiliarBorrar(DeleteView):
-  model = Familiar
-  success_url = "/panel-familia"
-
-class FamiliarActualizar(UpdateView):
-  model = Familiar
-  success_url = "/panel-familia"
-  fields = ["nombre", "direccion", "numero_pasaporte"]

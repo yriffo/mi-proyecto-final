@@ -10,9 +10,11 @@
 
     <form method="post">
         {% csrf_token %}
-        {{form.as_p}} <!-- as_p metodo que muestra un campo debajo del otro-->
-        <input type="submit" value="Agregar"> <!-- boton 
+        "¿ Estás seguro de borrar el familiar {{ object }} ?"
+        <input type="submit" value="SI">
     </form>
+    
+    <a href="{% url 'familiar-list' %}">Volver a lista de Familia</a>
 
 </body>
 </html>
